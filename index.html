@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roll Number</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body ng-app="myApp" ng-controller="MainController">
+    <div class="container">
+        <h1>JSON Processor</h1>
+        <input type="text" ng-model="jsonInput" placeholder="Enter JSON data here" />
+        <button ng-click="submitData()">Submit</button>
+        <div ng-if="errorMessage" class="error">{{ errorMessage }}</div>
+        
+        <select ng-model="selectedOptions" ng-options="option for option in options" multiple>
+            <option value="">Select options</option>
+        </select>
+        <button ng-click="renderResponse()">Show Data</button>
+        <div class="result">
+            <p ng-if="showAlphabets">Alphabets: {{ responseData.alphabets.join(', ') }}</p>
+            <p ng-if="showNumbers">Numbers: {{ responseData.numbers.join(', ') }}</p>
+            <p ng-if="showHighestLowercaseAlphabet">Highest Lowercase Alphabet: {{ responseData.highest_lowercase_alphabet.join(', ') }}</p>
+        </div>
+        
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
